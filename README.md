@@ -2,18 +2,18 @@
 This project demonstrates how to merge results after asynchronous calls to multiple services using Apache Camel splitter technique.
 As a mock service, we will be calling the Internet Chuck Norris Database twice, in parallel and merging the jokes data responses into one result.
 
-##Swagger 
+## Swagger 
 http://localhost:8080/chucknorrisjokessplitter/api/v1/api-doc
 Import into PostMan for further information
 
-##Service endpoint
+## Service endpoint
 Sample request:
 ```json
 {"firstName":"Tom","lastName":"Hanks"}
 ```
 POST to http://localhost:8080/chucknorrisjokessplitter/api/v1/chucknoriss/jokes
 
-##Test
+## Test
 WebTestClient is used to test the API
 
 ### Reference Documentation
