@@ -1,4 +1,4 @@
-# Get 2 Jokes for 1 API Call!, parallel service integration using Spring Boot, Apache Camel and WebTestClient
+# Get 2 jokes for 1 API call!, parallel service integration using Spring Boot, Apache Camel and WebTestClient
 
 This project demonstrates how to merge results after asynchronous calls to multiple services using Apache Camel splitter technique.
 As a mock service, we will be calling the Internet Chuck Norris Database twice, in parallel and merging the jokes data responses into one result.
