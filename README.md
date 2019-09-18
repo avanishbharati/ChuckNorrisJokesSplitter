@@ -1,4 +1,4 @@
-# Get 2 jokes for 1 API call!, parallel service integration using Spring Boot, Apache Camel and WebTestClient
+# Parallel processing response, service integration, using Spring Boot, Apache Camel and WebTestClient
 
 This project demonstrates how to merge results after asynchronous calls to multiple services using Apache Camel splitter technique.
 As a mock service, we will be calling the Internet Chuck Norris Database twice, in parallel and merging the jokes data responses into one result.
@@ -21,6 +21,7 @@ WebTestClient is used to test the API
 ### Reference Documentation
 For further reference, please consider the following sections:
 
+* [The Technique of Data Flow Diagramming](https://spot.colorado.edu/~kozar/DFDtechnique.html)
 * [Sequencer](https://www.enterpriseintegrationpatterns.com/patterns/messaging/Sequencer.html)
 * [Aggregator](https://www.enterpriseintegrationpatterns.com/patterns/messaging/Aggregator.html)
 * [pache-camel-how-to-send-two-http-requests-in-parallel-and-wait-for-the-respons](https://stackoverflow.com/questions/37388376/apache-camel-how-to-send-two-http-requests-in-parallel-and-wait-for-the-respons/37411289#37411289)
