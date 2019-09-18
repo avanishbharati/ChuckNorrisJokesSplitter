@@ -16,7 +16,9 @@ Sample request:
 POST to http://localhost:8080/chucknorrisjokessplitter/api/v1/chucknoriss/jokes
 
 Sample response:
+```json
 [{"type":"success","value":{"id":438,"joke":"Tom Hanks likes his ice like he likes his skulls: crushed.","categories":[]}},{"type":"success","value":{"id":132,"joke":"An anagram for Walker Texas Ranger is KARATE WRANGLER SEX. I don't know what that is, but it sounds AWESOME.","categories":[]}}]
+```
 
 ## Test
 WebTestClient is used to test the API
