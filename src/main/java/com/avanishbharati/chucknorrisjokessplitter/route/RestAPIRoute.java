@@ -1,17 +1,13 @@
 package com.avanishbharati.chucknorrisjokessplitter.route;
 
-import org.apache.camel.CamelContext;
-import org.apache.camel.LoggingLevel;
-import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.jackson.JacksonDataFormat;
-import org.apache.camel.impl.DefaultCamelContext;
-import org.apache.camel.model.rest.RestBindingMode;
-import org.apache.camel.spi.DataFormat;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
 import com.avanishbharati.chucknorrisjokessplitter.model.CharacterNameRequest;
 import com.avanishbharati.chucknorrisjokessplitter.model.JokeResponse;
+import org.apache.camel.CamelContext;
+import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.model.rest.RestBindingMode;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 @Component
 public class RestAPIRoute extends RouteBuilder {
@@ -46,11 +42,19 @@ public class RestAPIRoute extends RouteBuilder {
 
         rest("/chucknoriss/").id("chuck-noriss-jokes-api").description("Chuck Noriss Jokes Splitter API")
             .post("/jokes").description("Get Random Chuck Noriss Splitter Jokes")
-            .consumes("application/json")
-            .produces("application/json")
-            .type(CharacterNameRequest.class)
-            .bindingMode(RestBindingMode.json)
-            .outType(JokeResponse.class)
-            .to("direct:getJokes");
+                .consumes("application/json")
+                .produces("application/json")
+                .type(CharacterNameRequest.class)
+                .bindingMode(RestBindingMode.json)
+                .outType(JokeResponse.class)
+                .to("direct:getJokes")
+            .post("/joke")
+                .consumes("application/json")
+                .produces("application/json")
+                .type(CharacterNameRequest.class)
+                .bindingMode(RestBindingMode.json)
+                .outType(JokeResponse.class)
+                .to("direct:syncCall");
+
     }
 }

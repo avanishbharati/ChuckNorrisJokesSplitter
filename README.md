@@ -13,7 +13,9 @@ Sample request:
 ```json
 {"firstName":"Tom","lastName":"Hanks"}
 ```
-POST to http://localhost:8080/chucknorrisjokessplitter/api/v1/chucknoriss/jokes
+POST to http://localhost:8080/chucknorrisjokessplitter/api/v1/chucknoriss/jokes 
+
+For single response POST to http://localhost:8080/chucknorrisjokessplitter/api/v1/chucknoriss/jokes
 
 Sample response:
 ```json
