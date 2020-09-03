@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.7.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	
-	<groupId>com.avanishbharati</groupId>
-	<artifactId>chuck-norris-jokes-splitter</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>chuck-norris-jokes-splitter</name>
-	<description>Demo project for Spring Boot</description>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<properties>
-		<java.version>1.8</java.version>
-		<camel.version>3.0.0-RC1</camel.version>
-	</properties>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.7.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
-	<dependencies>	
-		<dependency>
+    <groupId>com.avanishbharati</groupId>
+    <artifactId>chuck-norris-jokes-splitter</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>chuck-norris-jokes-splitter</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <camel.version>3.0.0-RC1</camel.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
@@ -39,10 +39,10 @@
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
         <dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-core-starter</artifactId>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core-starter</artifactId>
             <version>${camel.version}</version>
-		</dependency>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -79,12 +79,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.8.1</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-swagger-java-starter</artifactId>
             <version>${camel.version}</version>
@@ -95,8 +89,6 @@
             <artifactId>camel-support</artifactId>
             <version>${camel.version}</version>
         </dependency>
-
-
 
         <!-- test -->
         <dependency>
@@ -110,13 +102,13 @@
             <version>${camel.version}</version>
             <scope>test</scope>
         </dependency>
-        
-	</dependencies>
 
-	<build>
-	    <defaultGoal>spring-boot:run</defaultGoal>
-		<plugins>
-		    <plugin>
+    </dependencies>
+
+    <build>
+        <defaultGoal>spring-boot:run</defaultGoal>
+        <plugins>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
@@ -124,13 +116,47 @@
                     <target>8</target>
                 </configuration>
             </plugin>
-            
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			
-		</plugins>
-	</build>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric8-maven-plugin</artifactId>
+                <version>3.5.37</version>
+                <configuration>
+                    <enricher>
+                        <config>
+                            <fmp-service>
+                                <type>LoadBalancer</type>
+                            </fmp-service>
+                        </config>
+                    </enricher>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>resource</goal>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <checkModificationExcludes>
+                        <checkModificationExclude>pom.xml</checkModificationExclude>
+                        <checkModificationExclude>**</checkModificationExclude>
+                    </checkModificationExcludes>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
 
 </project>
